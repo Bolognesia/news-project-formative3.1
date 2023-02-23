@@ -1,4 +1,5 @@
 <template>
+    
     <ArticleModalVue
         :single_article="modal_prop"
         @click="modal_on=false"
@@ -25,13 +26,13 @@
     }
 
 
+
 </style>
 
 <script setup>
     //Article prop declaration starts
     import ArticleVue from './Article.vue'
     import ArticleModalVue from './ArticleModal.vue'
-    // import ArticleVue from './Test.vue';
 
    defineProps({
     article_array: { 
@@ -39,6 +40,7 @@
        required: true
      },
    });
+   
    //Article prop declaration ends
 </script>
 
