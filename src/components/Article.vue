@@ -8,7 +8,7 @@
     <div class="article-content-wrapper">
       <h1 class="article-title">{{single_article_obj.title}}</h1>
       <p class="article-description">{{single_article_obj.description}}</p>
-      <div class="read-more-btn">Read More</div>
+      <div class="read-more-btn" @click="$emit('readMore')">Read More</div>
       <hr class="separator">
     </div>
   </div>
@@ -77,4 +77,10 @@
      },
    });
    //Article prop declaration ends
+</script>
+
+<script>
+export default {
+  emits:['readMore']
+}
 </script>

@@ -2,7 +2,7 @@
     
     <ArticleModalVue
         :single_article="modal_prop"
-        @click="modal_on=false"
+        @close="modal_on=false"
         v-if="modal_on"
     />
 
@@ -11,7 +11,7 @@
         <ArticleVue 
             v-for="single_article in article_array"
             :single_article_obj="single_article" 
-            @click="modal_load(single_article)"
+            @readMore="modal_load(single_article)"
         />
     </div>
 

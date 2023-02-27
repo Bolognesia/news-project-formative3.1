@@ -3,6 +3,7 @@
   import HeroVue from './components/Hero.vue'
   import MainVue from './components/Main.vue'
   import FooterVue from './components/Footer.vue'
+  import SearchVue from './components/Search.vue'
 </script>
 
 <template>
@@ -13,19 +14,22 @@
   />
   
 
-  <div class="search-section">
+  <!-- <div class="search-section">
     <h1 class="main-title">Home</h1>
     <div class="search-wrapper">
         <input id="search-input" type="text" placeholder="  Type here your search" v-model="user_input">
     </div>
     <div class="search-btn" @click="data_fetch">Search</div>
-  </div>
+  </div> -->
+<SearchVue @search_input="data_fetch"/>
+  
 
   <h1 class="main-title">Categories</h1>
   <div class="categories-section">
     
     <div class="single-category-wrapper" v-for="category in main_categories" :main_categories="category" >
-        <h4 class="categories" @click="user_input=category.category_name;data_fetch()">{{ category.category_name }}</h4>
+      <a href="#loading" class="categories"><h4 @click="user_input=category.category_name;data_fetch()">{{ category.category_name }}</h4></a>
+        
         
         <!-- <div class="category-img-wrapper">
           <img class="category-logo" :src="category.category_img" alt="">
@@ -33,7 +37,7 @@
     </div>
   </div>
 
-  <div class="loader" v-if="my_news_array.length==1 && search_happened"></div>
+  <div id="loading" class="loader" v-if="my_news_array.length==1 && search_happened"></div>
   <MainVue 
   :article_array='my_news_array'
   v-if="search_happened" />
@@ -119,6 +123,8 @@
         height: 120px;
         -webkit-animation: spin 2s linear infinite; /* Safari */
         animation: spin 2s linear infinite;
+        align-self: center;
+        margin: auto;
     }
 
     @-webkit-keyframes spin {
@@ -129,6 +135,11 @@
     @keyframes spin {
         0% { transform: rotate(0deg); }
         100% { transform: rotate(360deg); }
+    }
+
+    .categories{
+      text-decoration: none;
+      color: rgba(27, 43, 58, 1);
     }
 </style>
 

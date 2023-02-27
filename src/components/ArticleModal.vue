@@ -1,11 +1,16 @@
 <template>
     <div class="modal">
+        <div class="btn-wrapper">
+            <div class="close-btn" @click="$emit('close')">X</div>
+        </div>
+        
         <h3>{{ single_article.title }}</h3>
         <div class="modal-img-wrapper">
             <img :src="single_article.urlToImage" alt="">
         </div>
         <p class="modal-content">{{single_article.content}}</p>
         <a class="link" :href="single_article.url">Read More</a>
+        
     </div>
 </template>
 
@@ -42,6 +47,22 @@
         border-radius: 20px;
     }
 
+    .btn-wrapper{
+        display: flex;
+        justify-content: end;
+        margin: 0 0 10px 0;
+    }
+    .close-btn{
+        background-color: rgba(0, 182, 127, 1);
+        padding: 10px;
+        border-radius: 50%;
+        height: 10px;
+        width: 10px;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+    }
+
 
 </style>
 
@@ -53,4 +74,10 @@
         required: true
         },
    });
+</script>
+
+<script>
+export default {
+  emits:['close']
+}
 </script>
