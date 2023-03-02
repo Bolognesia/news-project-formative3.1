@@ -28,7 +28,7 @@
 
   <div class="categories-section">
     <div class="single-category-wrapper" v-for="category in main_categories" :main_categories="category" >
-      <a href="#loading" class="categories"><h4 @click="user_input=category.category_name;data_fetch()">{{ category.category_name }}</h4></a>
+      <a href="#loading" class="categories"><h4 @click="data_fetch(category.category_name)">{{ category.category_name }}</h4></a>
       <div class="category-img-wrapper">
         <font-awesome-icon class="icon" :icon="category.icon" />
       </div>
@@ -183,12 +183,12 @@
 
 
     methods:{ // funtions are written in methods
-        async data_fetch(){
+        async data_fetch(received_input){
         this.search_happened = true;
-        const response = await fetch("https://newsapi.org/v2/everything?q="+this.user_input+"&from=2023-02-01&to=2023-02-22&sortBy=popularity&language=en&apiKey=80ba26a4dfe64eeeb8acbcf0ae02a6ee");
+        const response = await fetch("https://newsapi.org/v2/everything?q="+received_input+"&language=en&apiKey=80ba26a4dfe64eeeb8acbcf0ae02a6ee");
         const received_data = await response.json();
         // at this point our data is available under received_data variable
-        // console.log( received_data );
+        console.log( received_data );
         this.my_news_array = received_data.articles;
         // console.log(this.my_news_array[0]);
         // console.log(received_data.articles);

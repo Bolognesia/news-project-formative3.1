@@ -2,9 +2,9 @@
   <div class="search-section">
     <h1 class="main-title">Home</h1>
     <div class="search-wrapper">
-        <input id="search-input" type="text" placeholder="  Type here your search" v-model="user_input">
+        <input id="search-input" type="text" placeholder="  Type here your search" v-model="user_value">
     </div>
-    <div class="search-btn" @click="$emit('search_input',user_input)">Search</div>
+    <div class="search-btn" @click="$emit('search_input',user_value)">Search</div>
 
     <!-- <div class="search-btn" @click="data_fetch">Search</div> -->
   </div>
@@ -14,7 +14,7 @@
 export default {
     data(){
         return{
-            user_input:''
+            user_value:''
         }
     },
 
