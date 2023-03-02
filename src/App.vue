@@ -25,15 +25,13 @@
   
 
   <h1 class="main-title">Categories</h1>
+
   <div class="categories-section">
-    
     <div class="single-category-wrapper" v-for="category in main_categories" :main_categories="category" >
       <a href="#loading" class="categories"><h4 @click="user_input=category.category_name;data_fetch()">{{ category.category_name }}</h4></a>
-        
-        
-        <!-- <div class="category-img-wrapper">
-          <img class="category-logo" :src="category.category_img" alt="">
-        </div> -->
+      <div class="category-img-wrapper">
+        <font-awesome-icon class="icon" :icon="category.icon" />
+      </div>
     </div>
   </div>
 
@@ -104,16 +102,11 @@
     border-radius: 20px;
   }
 
-  .category-img-wrapper{
-    width: 100px;
-    height: 100px;
+  .icon{
+    height: 25px;
+    margin-left: 10px;
   }
 
-  .category-logo{
-    width: 100%;
-    height: 100%;
-    object-fit:fill;
-  }
 
   .loader {
         border: 16px solid #f3f3f3;
@@ -154,19 +147,19 @@
         main_categories:[
           {
             category_name: 'Entertainment',
-            category_img: './assets/entertainment.svg'
+            icon: "fa-solid fa-film" 
           },
           {
             category_name: 'Business',
-            category_img: './assets/business.svg'
+            icon: 'fa-solid fa-dollar-sign'
           },
           {
             category_name: 'Technology',
-            category_img: './assets/tech.svg'
+            icon: 'fa-solid fa-laptop-code'
           },
           {
             category_name: 'Politics',
-            category_img: './assets/politics.svg'
+            icon: 'fa-solid fa-landmark-flag'
           },
         ],
         my_news_array:[
