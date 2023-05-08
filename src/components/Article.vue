@@ -23,6 +23,8 @@
   .single-article-wrapper{
     display: flex;
     padding: 0 20px;
+    width: clamp(320px, 50vw, 1000px);
+    margin: 0 auto;
   }
 
   .single-article-img-wrapper{

@@ -34,12 +34,10 @@ export default {
     background-color: rgba(0, 182, 127, 1);
     padding: 10px;
     border-radius: 20px;
-    margin-left: 120px;
-    margin-top: 20px;
+    margin-left: 35%;
     text-align: center;
     width: 30%;
     font-size: 12px;;
-    
   } 
 
   .search-wrapper{
